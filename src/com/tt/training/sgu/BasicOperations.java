@@ -22,10 +22,11 @@ public class BasicOperations {
 		@Override
 		public int read() throws IOException {
 			// TODO Auto-generated method stub
-			int ret = 0;
-			if (buffer.length()>0)
+			int ret = -1;
+			if (buffer.length()>0) {
 					ret = buffer.getBytes()[0];
-			buffer = buffer.substring(1);
+					buffer = buffer.substring(1);
+			}
 			return ret;
 		}
 		
@@ -41,9 +42,9 @@ public class BasicOperations {
 	}
 
 	@Test
-	public void add() {
+	public void add() throws IOException {
 		input.write("1+1");
-		assertEquals(new Double(2),calc.result());
+	 	assertEquals(new Double(2), calc.result());
 	}
 	
 	@Test
