@@ -2,7 +2,7 @@ package com.tt.training.sgu;
 
 import java.util.ArrayList;
 
-public interface Operator {
+public interface Operator extends Operand {
 
 	String symbol();
 

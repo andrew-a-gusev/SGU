@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Add implements BinaryOperator {
 
 	public static final String NAME = "+";
+	private ArrayList<Operand> operands;
 
 	@Override
 	public String symbol() {
@@ -13,11 +14,17 @@ public class Add implements BinaryOperator {
 
 	@Override
 	public Operand apply(ArrayList<Operand> operands) {
+		this.operands = operands;
+		return this;
+	}
+	
+	@Override
+	public Double value() {
 		double ret = 0.0;
 		for(Operand operand: operands) {
 			ret += operand.value();
 		}
-		return new DoubleOperand(ret);
+		return ret;
 	}
 
 }
